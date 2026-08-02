@@ -1,0 +1,68 @@
+name: Предложить архив версий
+description: Начать разговор без публикации текстов или приватных данных
+title: "[Архив] "
+labels:
+  - data-offer
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Не прикладывайте сюда тексты, архивы, персональные данные или приватные ссылки. Нужна только общая информация о формате.
+
+        Перед заявкой прочитайте [какие данные нужны](https://github.com/anemchik/draft-process-lab-ru/blob/main/DATA_REQUEST.md) и [права и приватность](https://github.com/anemchik/draft-process-lab-ru/blob/main/RIGHTS_AND_PRIVACY.md). Там описаны возможная облачная обработка, обучение экспериментальной модели, производные веса и границы удаления.
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Какие тексты есть в архиве?
+      options:
+        - Редакционные / экспертные / объяснительные
+        - Коммерческие статьи / лендинги / страницы услуг
+        - Письма / рассылки
+        - Личные истории / отзывы / путешествия
+        - Нон-фикшен / книги
+        - Другое
+    validations:
+      required: true
+  - type: input
+    id: episode_count
+    attributes:
+      label: Примерное число полных историй
+      description: Сколько задач имеют первый черновик, версии и финал?
+      placeholder: Например, 15–30
+    validations:
+      required: true
+  - type: checkboxes
+    id: states
+    attributes:
+      label: Что сохранилось?
+      options:
+        - label: Реальная задача, бриф или исходные материалы
+        - label: Первый человеческий черновик
+        - label: Несколько полных версий в понятном порядке
+        - label: Комментарии редактора и ответы автора
+        - label: Принятые и отклонённые правки
+        - label: Финальный текст
+        - label: Можно отделить human-only проекты от model-assisted
+  - type: textarea
+    id: rights
+    attributes:
+      label: Кто владеет правами?
+      description: Достаточно общей картины — автор, редакция, агентство, клиент, платформа. Не публикуйте имена частных лиц.
+    validations:
+      required: true
+  - type: input
+    id: official_contact
+    attributes:
+      label: Официальный публичный канал для продолжения
+      description: Ссылка на сайт, форму, публичный рабочий профиль или другой уже опубликованный канал. Не указывайте здесь личный адрес, если не хотите видеть его публично.
+    validations:
+      required: true
+  - type: checkboxes
+    id: acknowledgement
+    attributes:
+      label: Предварительное понимание
+      options:
+        - label: Я понимаю, что заявка публична и не прикладываю к ней сами материалы
+          required: true
+        - label: Я прочитал(а) описание возможной облачной обработки и обучения экспериментальной модели
+          required: true
